@@ -1,8 +1,8 @@
 package v1
 
 import (
-	"github.com/mxkacsa/v3-bitget-api-sdk/internal"
-	"github.com/mxkacsa/v3-bitget-api-sdk/internal/common"
+	"github.com/mxkacsa/v3-bitget-api-sdk/pkg"
+	"github.com/mxkacsa/v3-bitget-api-sdk/pkg/common"
 )
 
 type SpotMarketClient struct {
@@ -15,7 +15,7 @@ func (p *SpotMarketClient) Init() *SpotMarketClient {
 }
 
 func (p *SpotMarketClient) Currencies() (string, error) {
-	params := internal.NewParams()
+	params := pkg.NewParams()
 	resp, err := p.BitgetRestClient.DoGet("/api/spot/v1/public/currencies", params)
 	return resp, err
 }

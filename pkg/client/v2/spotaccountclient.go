@@ -1,8 +1,8 @@
 package v2
 
 import (
-	"github.com/mxkacsa/v3-bitget-api-sdk/internal"
-	"github.com/mxkacsa/v3-bitget-api-sdk/internal/common"
+	"github.com/mxkacsa/v3-bitget-api-sdk/pkg"
+	"github.com/mxkacsa/v3-bitget-api-sdk/pkg/common"
 )
 
 type SpotAccountClient struct {
@@ -15,7 +15,7 @@ func (p *SpotAccountClient) Init() *SpotAccountClient {
 }
 
 func (p *SpotAccountClient) Info() (string, error) {
-	params := internal.NewParams()
+	params := pkg.NewParams()
 	resp, err := p.BitgetRestClient.DoGet("/api/v2/spot/account/info", params)
 	return resp, err
 }

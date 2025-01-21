@@ -2,8 +2,8 @@ package test
 
 import (
 	"fmt"
-	"github.com/mxkacsa/v3-bitget-api-sdk/internal/model"
 	"github.com/mxkacsa/v3-bitget-api-sdk/pkg/client/ws"
+	"github.com/mxkacsa/v3-bitget-api-sdk/pkg/model"
 	"testing"
 )
 
