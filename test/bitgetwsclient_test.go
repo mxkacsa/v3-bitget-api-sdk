@@ -1,9 +1,9 @@
 package test
 
 import (
-	"bitget/internal/model"
-	"bitget/pkg/client/ws"
 	"fmt"
+	"github.com/mxkacsa/v3-bitget-api-sdk/internal/model"
+	"github.com/mxkacsa/v3-bitget-api-sdk/pkg/client/ws"
 	"testing"
 )
 

@@ -1,4 +1,4 @@
-module github.com/mxkacsa/v3-bitget-api-sdk/v1
+module github.com/mxkacsa/v3-bitget-api-sdk
 
 go 1.17
 

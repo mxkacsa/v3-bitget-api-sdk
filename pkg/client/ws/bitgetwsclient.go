@@ -1,10 +1,10 @@
 package ws
 
 import (
-	"bitget/constants"
-	"bitget/internal/common"
-	"bitget/internal/model"
-	"bitget/logging/applogger"
+	"github.com/mxkacsa/v3-bitget-api-sdk/constants"
+	"github.com/mxkacsa/v3-bitget-api-sdk/internal/common"
+	"github.com/mxkacsa/v3-bitget-api-sdk/internal/model"
+	"github.com/mxkacsa/v3-bitget-api-sdk/logging/applogger"
 	"strings"
 )
 

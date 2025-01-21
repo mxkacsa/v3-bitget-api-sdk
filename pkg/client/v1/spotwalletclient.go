@@ -1,8 +1,8 @@
 package v1
 
 import (
-	"bitget/internal"
-	"bitget/internal/common"
+	"github.com/mxkacsa/v3-bitget-api-sdk/internal"
+	"github.com/mxkacsa/v3-bitget-api-sdk/internal/common"
 )
 
 type SpotWalletApi struct {

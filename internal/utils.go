@@ -1,9 +1,9 @@
 package internal
 
 import (
-	"bitget/constants"
 	"encoding/json"
 	"errors"
+	"github.com/mxkacsa/v3-bitget-api-sdk/constants"
 	"net/http"
 	"sort"
 	"strconv"

@@ -1,10 +1,10 @@
 package test
 
 import (
-	"bitget/internal"
-	"bitget/pkg/client"
-	"bitget/pkg/client/v1"
 	"fmt"
+	"github.com/mxkacsa/v3-bitget-api-sdk/internal"
+	"github.com/mxkacsa/v3-bitget-api-sdk/pkg/client"
+	"github.com/mxkacsa/v3-bitget-api-sdk/pkg/client/v1"
 	"testing"
 )
 

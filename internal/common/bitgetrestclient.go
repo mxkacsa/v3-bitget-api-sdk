@@ -1,9 +1,9 @@
 package common
 
 import (
-	"bitget/config"
-	"bitget/constants"
-	"bitget/internal"
+	"github.com/mxkacsa/v3-bitget-api-sdk/config"
+	"github.com/mxkacsa/v3-bitget-api-sdk/constants"
+	"github.com/mxkacsa/v3-bitget-api-sdk/internal"
 	"io/ioutil"
 	"net/http"
 	"strings"

@@ -1,13 +1,13 @@
 package common
 
 import (
-	"bitget/config"
-	"bitget/constants"
-	"bitget/internal"
-	"bitget/internal/model"
-	"bitget/logging/applogger"
 	"fmt"
 	"github.com/gorilla/websocket"
+	"github.com/mxkacsa/v3-bitget-api-sdk/config"
+	"github.com/mxkacsa/v3-bitget-api-sdk/constants"
+	"github.com/mxkacsa/v3-bitget-api-sdk/internal"
+	"github.com/mxkacsa/v3-bitget-api-sdk/internal/model"
+	"github.com/mxkacsa/v3-bitget-api-sdk/logging/applogger"
 	"github.com/robfig/cron"
 	"sync"
 	"time"
