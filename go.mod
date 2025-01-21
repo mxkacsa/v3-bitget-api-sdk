@@ -1,6 +1,6 @@
 module github.com/mxkacsa/v3-bitget-api-sdk
 
-go 1.17
+go 1.22.2
 
 require (
 	github.com/gorilla/websocket v1.4.2
