@@ -1,6 +1,7 @@
 package ws
 
 import (
+	"github.com/mxkacsa/v3-bitget-api-sdk/config"
 	"github.com/mxkacsa/v3-bitget-api-sdk/constants"
 	"github.com/mxkacsa/v3-bitget-api-sdk/logging/applogger"
 	"github.com/mxkacsa/v3-bitget-api-sdk/pkg/common"
@@ -13,8 +14,8 @@ type BitgetWsClient struct {
 	NeedLogin          bool
 }
 
-func (p *BitgetWsClient) Init(needLogin bool, listener common.OnReceive, errorListener common.OnReceive) *BitgetWsClient {
-	p.bitgetBaseWsClient = new(common.BitgetBaseWsClient).Init()
+func (p *BitgetWsClient) Init(conf config.Config, needLogin bool, listener common.OnReceive, errorListener common.OnReceive) *BitgetWsClient {
+	p.bitgetBaseWsClient = new(common.BitgetBaseWsClient).Init(conf)
 	p.bitgetBaseWsClient.SetListener(listener, errorListener)
 	p.bitgetBaseWsClient.ConnectWebSocket()
 	p.bitgetBaseWsClient.StartReadLoop()

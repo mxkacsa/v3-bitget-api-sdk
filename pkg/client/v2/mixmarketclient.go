@@ -1,6 +1,7 @@
 package v2
 
 import (
+	"github.com/mxkacsa/v3-bitget-api-sdk/config"
 	"github.com/mxkacsa/v3-bitget-api-sdk/pkg/common"
 )
 
@@ -8,8 +9,8 @@ type MixMarketClient struct {
 	BitgetRestClient *common.BitgetRestClient
 }
 
-func (p *MixMarketClient) Init() *MixMarketClient {
-	p.BitgetRestClient = new(common.BitgetRestClient).Init()
+func (p *MixMarketClient) Init(conf config.Config) *MixMarketClient {
+	p.BitgetRestClient = new(common.BitgetRestClient).Init(conf)
 	return p
 }
 

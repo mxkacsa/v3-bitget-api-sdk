@@ -1,6 +1,7 @@
 package v2
 
 import (
+	"github.com/mxkacsa/v3-bitget-api-sdk/config"
 	"github.com/mxkacsa/v3-bitget-api-sdk/pkg"
 	"github.com/mxkacsa/v3-bitget-api-sdk/pkg/common"
 )
@@ -9,8 +10,8 @@ type SpotOrderClient struct {
 	BitgetRestClient *common.BitgetRestClient
 }
 
-func (p *SpotOrderClient) Init() *SpotOrderClient {
-	p.BitgetRestClient = new(common.BitgetRestClient).Init()
+func (p *SpotOrderClient) Init(conf config.Config) *SpotOrderClient {
+	p.BitgetRestClient = new(common.BitgetRestClient).Init(conf)
 	return p
 }
 

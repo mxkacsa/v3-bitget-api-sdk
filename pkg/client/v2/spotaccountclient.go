@@ -1,6 +1,7 @@
 package v2
 
 import (
+	"github.com/mxkacsa/v3-bitget-api-sdk/config"
 	"github.com/mxkacsa/v3-bitget-api-sdk/pkg"
 	"github.com/mxkacsa/v3-bitget-api-sdk/pkg/common"
 )
@@ -9,8 +10,8 @@ type SpotAccountClient struct {
 	BitgetRestClient *common.BitgetRestClient
 }
 
-func (p *SpotAccountClient) Init() *SpotAccountClient {
-	p.BitgetRestClient = new(common.BitgetRestClient).Init()
+func (p *SpotAccountClient) Init(conf config.Config) *SpotAccountClient {
+	p.BitgetRestClient = new(common.BitgetRestClient).Init(conf)
 	return p
 }
 

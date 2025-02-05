@@ -25,14 +25,23 @@ type BitgetBaseWsClient struct {
 	LastReceivedTime time.Time
 	AllSuribe        *model2.Set
 	Signer           *Signer
+	wsUrl            string
+	signType         string
+	apiKey           string
+	secretKey        string
+	passphrase       string
 	ScribeMap        map[model2.SubscribeReq]OnReceive
 }
 
-func (p *BitgetBaseWsClient) Init() *BitgetBaseWsClient {
+func (p *BitgetBaseWsClient) Init(conf config.Config) *BitgetBaseWsClient {
 	p.Connection = false
 	p.AllSuribe = model2.NewSet()
-	p.Signer = new(Signer).Init(config.SecretKey)
+	p.Signer = new(Signer).Init(conf.SecretKey)
 	p.ScribeMap = make(map[model2.SubscribeReq]OnReceive)
+	p.wsUrl = conf.WsUrl
+	p.apiKey = conf.ApiKey
+	p.secretKey = conf.SecretKey
+	p.passphrase = conf.PASSPHRASE
 	p.SendMutex = &sync.Mutex{}
 	p.Ticker = time.NewTicker(constants.TimerIntervalSecond * time.Second)
 	p.LastReceivedTime = time.Now()
@@ -54,7 +63,7 @@ func (p *BitgetBaseWsClient) Connect() {
 func (p *BitgetBaseWsClient) ConnectWebSocket() {
 	var err error
 	applogger.Info("WebSocket connecting...")
-	p.WebSocketClient, _, err = websocket.DefaultDialer.Dial(config.WsUrl, nil)
+	p.WebSocketClient, _, err = websocket.DefaultDialer.Dial(p.wsUrl, nil)
 	if err != nil {
 		fmt.Printf("WebSocket connected error: %s\n", err)
 		return
@@ -66,13 +75,13 @@ func (p *BitgetBaseWsClient) ConnectWebSocket() {
 func (p *BitgetBaseWsClient) Login() {
 	timesStamp := pkg.TimesStampSec()
 	sign := p.Signer.Sign(constants.WsAuthMethod, constants.WsAuthPath, "", timesStamp)
-	if constants.RSA == config.SignType {
+	if constants.RSA == p.signType {
 		sign = p.Signer.SignByRSA(constants.WsAuthMethod, constants.WsAuthPath, "", timesStamp)
 	}
 
 	loginReq := model2.WsLoginReq{
-		ApiKey:     config.ApiKey,
-		Passphrase: config.PASSPHRASE,
+		ApiKey:     p.apiKey,
+		Passphrase: p.passphrase,
 		Timestamp:  timesStamp,
 		Sign:       sign,
 	}

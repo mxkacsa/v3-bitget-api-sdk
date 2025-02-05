@@ -1,6 +1,7 @@
 package client
 
 import (
+	"github.com/mxkacsa/v3-bitget-api-sdk/config"
 	"github.com/mxkacsa/v3-bitget-api-sdk/pkg"
 	"github.com/mxkacsa/v3-bitget-api-sdk/pkg/common"
 )
@@ -9,8 +10,8 @@ type BitgetApiClient struct {
 	BitgetRestClient *common.BitgetRestClient
 }
 
-func (p *BitgetApiClient) Init() *BitgetApiClient {
-	p.BitgetRestClient = new(common.BitgetRestClient).Init()
+func (p *BitgetApiClient) Init(conf config.Config) *BitgetApiClient {
+	p.BitgetRestClient = new(common.BitgetRestClient).Init(conf)
 	return p
 }
 

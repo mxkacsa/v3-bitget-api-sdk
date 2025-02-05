@@ -2,6 +2,7 @@ package test
 
 import (
 	"fmt"
+	"github.com/mxkacsa/v3-bitget-api-sdk/config"
 	"github.com/mxkacsa/v3-bitget-api-sdk/pkg/client/ws"
 	"github.com/mxkacsa/v3-bitget-api-sdk/pkg/model"
 	"testing"
@@ -9,7 +10,7 @@ import (
 
 func TestBitgetWsClient_New(t *testing.T) {
 
-	client := new(ws.BitgetWsClient).Init(true, func(message string) {
+	client := new(ws.BitgetWsClient).Init(config.DefaultConfig(), true, func(message string) {
 		fmt.Println("default error:" + message)
 	}, func(message string) {
 		fmt.Println("default error:" + message)
